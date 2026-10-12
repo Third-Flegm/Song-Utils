@@ -1,0 +1,103 @@
+{
+  "key": "A minor",
+  "meter": "4/4",
+  "sections": [
+    {
+      "name": "Intro",
+      "tacts": [
+        { "parts": [{ "chord": "Am" }, { "chord": "C" }] },
+        { "parts": [{ "chord": "F" }, { "chord": "Dm" }] }
+      ]
+    },
+    {
+      "name": "Verse",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "No smoke without fire..." }, { "chord": "C", "lyrics": "No silence if there's no sound" }] },
+        { "parts": [{ "chord": "C", "lyrics": "One way or another" }, { "chord": "D", "lyrics": "You're going to put me out" }] }
+      ]
+    },
+    {
+      "name": "Verse",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "Drinks flowing like water..." }, { "chord": "C", "lyrics": "Too drunk to turn off the light" }] },
+        { "parts": [{ "chord": "C", "lyrics": "Stay under the covers" }, { "chord": "D", "lyrics": "Who knows how we'll end the night" }] }
+      ]
+    },
+    {
+      "name": "Pre-Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "Just dont hang your hopes on me" }, { "chord": "C", "lyrics": "i want to feel something" }] },
+        { "parts": [{ "chord": "C", "lyrics": "God you look so pretty when you" }, { "chord": "D", "lyrics": "tell me that you love me" }] }
+      ]
+    },
+    {
+      "name": "Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "F", "lyrics": "...I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie, but my" }, { "chord": "G", "lyrics": "mind gets in the" }] },
+        { "parts": [{ "chord": "F", "lyrics": "way ... I" }, { "chord": "Dm", "lyrics": "know you think that" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "I'm, always" }, { "chord": "G", "lyrics": "way too self" }] },
+        { "parts": [{ "chord": "F", "lyrics": "aware ... Oh we could" }, { "chord": "Dm", "lyrics": "never be to-" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "gether but it's" }, { "chord": "G", "lyrics": "nice to play pre-" }] },
+        { "parts": [{ "chord": "F", "lyrics": "tend ... I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie ... But I'm" }, { "chord": "G", "lyrics": "way too self aware" }] }
+      ]
+    },
+    {
+      "name": "Verse",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "...Mood swings like the weather, body's under" }, { "chord": "C", "lyrics": "pressure ... Oh I love the way you're using your imagi-" }] },
+        { "parts": [{ "chord": "C", "lyrics": "nation ... Laws of attraction, put em into" }, { "chord": "D", "lyrics": "practice" }] }
+      ]
+    },
+    {
+      "name": "Pre-Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "Just dont hang your hopes on me" }, { "chord": "C", "lyrics": "i want to feel something" }] },
+        { "parts": [{ "chord": "C", "lyrics": "God you look so pretty when you" }, { "chord": "D", "lyrics": "tell me that you love me" }] }
+      ]
+    },
+    {
+      "name": "Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "F", "lyrics": "...I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie, but my" }, { "chord": "G", "lyrics": "mind gets in the" }] },
+        { "parts": [{ "chord": "F", "lyrics": "way ... I" }, { "chord": "Dm", "lyrics": "know you think that" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "I'm, always" }, { "chord": "G", "lyrics": "way too self" }] },
+        { "parts": [{ "chord": "F", "lyrics": "aware ... Oh we could" }, { "chord": "Dm", "lyrics": "never be to-" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "gether but it's" }, { "chord": "G", "lyrics": "nice to play pre-" }] },
+        { "parts": [{ "chord": "F", "lyrics": "tend ... I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie ... But I'm" }, { "chord": "G", "lyrics": "way too self aware" }] }
+      ]
+    },
+    {
+      "name": "Bridge",
+      "tacts": [
+        { "parts": [{ "chord": "F" }, { "chord": "Dm" }] },
+        { "parts": [{ "chord": "Am" }, { "chord": "G" }] },
+        { "parts": [{ "chord": "F" }, { "chord": "Dm" }] },
+        { "parts": [{ "chord": "Am" }, { "chord": "G" }] }
+      ]
+    },
+    {
+      "name": "Pre-Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "Am", "lyrics": "Just dont hang your hopes on me" }, { "chord": "C", "lyrics": "i want to feel something" }] },
+        { "parts": [{ "chord": "C", "lyrics": "God you look so pretty when you" }, { "chord": "D", "lyrics": "tell me that you love me" }] }
+      ]
+    },
+    {
+      "name": "Chorus",
+      "tacts": [
+        { "parts": [{ "chord": "F", "lyrics": "...I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie, but my" }, { "chord": "G", "lyrics": "mind gets in the" }] },
+        { "parts": [{ "chord": "F", "lyrics": "way ... I" }, { "chord": "Dm", "lyrics": "know you think that" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "I'm, always" }, { "chord": "G", "lyrics": "way too self" }] },
+        { "parts": [{ "chord": "F", "lyrics": "aware ... Oh we could" }, { "chord": "Dm", "lyrics": "never be to-" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "gether but it's" }, { "chord": "G", "lyrics": "nice to play pre-" }] },
+        { "parts": [{ "chord": "F", "lyrics": "tend ... I" }, { "chord": "Dm", "lyrics": "wish that i could" }] },
+        { "parts": [{ "chord": "Am", "lyrics": "lie ... But I'm" }, { "chord": "G", "lyrics": "way too self aware" }] }
+      ]
+    }
+  ]
+}

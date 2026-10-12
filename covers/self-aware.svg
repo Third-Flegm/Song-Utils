@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title description">
+  <title id="title">Self Aware</title>
+  <desc id="description">A solitary lit window among dark city rooftops at night.</desc>
+  <rect width="720" height="900" fill="#202d28"/>
+  <path d="M0 0h720v172L0 304z" fill="#31423a"/>
+  <path d="M0 644 720 504v396H0z" fill="#17221e"/>
+  <path d="m0 573 158-30v357H0zm182-54 137-26v407H182zm167-32 168-33v446H349zm198-39 173-34v486H547z" fill="#283831"/>
+  <path d="M66 621V424l54-9v196zm227-46V372l67-12v201zm276-68V315l48-9v191z" fill="#18231f"/>
+  <path d="m409 480 112-22v-200l-112 25z" fill="#e7ad65"/>
+  <path d="m425 462 80-16V279l-80 18z" fill="#f4dba7"/>
+  <path d="M455 453V289m-30 91 80-17" stroke="#8f6944" stroke-width="8"/>
+  <path d="m384 489 139-27v18l-139 27z" fill="#121a17"/>
+  <path d="M44 115h168M44 133h116M522 741h134" stroke="#9bc9b0" stroke-width="3" opacity=".64"/>
+  <text x="48" y="755" fill="#e9eee6" font-family="Georgia,serif" font-size="62" letter-spacing="2">SELF AWARE</text>
+  <text x="52" y="802" fill="#a9b9ad" font-family="monospace" font-size="17" letter-spacing="4">TEMPER CITY · A MINOR</text>
+</svg>

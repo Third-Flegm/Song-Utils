@@ -15,14 +15,19 @@ Open the local URL printed by Vite. To create a production build, run `npm run b
 
 - `/` is the instrument hub, with direct links to Piano and Guitar.
 - `/chords/` is the chord atlas. The instrument links open it with `?instrument=piano` or `?instrument=guitar` selected.
+- `/archives/` is Song Archives, where cover cards select songs and show their charts by section and tact.
 
 ## Source layout
 
 - `index.html` and `src/home.js` render the home page.
 - `chords/index.html` and `src/main.js` render the chord atlas subpage.
+- `archives/index.html` and `src/archives.js` render Song Archives.
 - `src/pages/piano.js` renders the piano keyboard view.
 - `src/pages/guitar.js` selects and renders guitar chord grips.
 - `src/data/instruments.json` defines instruments and chord notes.
+- `src/data/songs.json` contains archive-card metadata: title, author, info, and cover filename.
+- `songs/<songname>.json` contains a song's key, meter, sections, tacts, lyrics, and chords.
+- `covers/` contains the title-picture assets referenced by the song metadata.
 - `src/style.css` contains shared and instrument-view styles.
 
 ## Publish on GitHub Pages

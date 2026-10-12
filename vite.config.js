@@ -10,6 +10,7 @@ export default {
       input: {
         home: resolve(projectRoot, 'index.html'),
         chords: resolve(projectRoot, 'chords/index.html'),
+        archives: resolve(projectRoot, 'archives/index.html'),
       },
     },
   },
