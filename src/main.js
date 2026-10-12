@@ -12,12 +12,13 @@ const app = document.querySelector('#app');
 app.innerHTML = `
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="../" aria-label="Song Utils home">
+      <a class="brand" href="../../" aria-label="Song Utils home">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>song<span class="brand-light">utils</span></span>
       </a>
       <div class="topbar-right">
-        <a class="home-link" href="../">HOME <span aria-hidden="true">↖</span></a>
+        <a class="home-link" href="../../">HOME <span aria-hidden="true">↖</span></a>
+        <a class="home-link" href="../">INSTRUMENTS <span aria-hidden="true">↗</span></a>
         <span class="edition-label">THE MUSICIAN'S TOOLKIT</span>
         <label class="instrument-control" for="instrument-select">
           <span class="instrument-icon" aria-hidden="true">♫</span>

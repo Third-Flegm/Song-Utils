@@ -29,46 +29,42 @@ document.querySelector('#app').innerHTML = `
             <p class="section-index">01 <span>YOUR TOOLS</span></p>
             <h2 id="tools-title">Choose a tool</h2>
           </div>
-          <span class="tool-total">03</span>
+          <span class="tool-total">02</span>
         </div>
 
         <div class="instrument-grid">
-          <a class="instrument-card" href="./chords/?instrument=piano">
+          <a class="instrument-card chord-hub-card" href="./chords/">
             <div class="instrument-card-top">
-              <span class="instrument-number">01 / KEYS</span>
+              <span class="instrument-number">01 / CHORDS</span>
               <span class="card-arrow" aria-hidden="true">↗</span>
             </div>
-            <div class="mini-piano" aria-hidden="true">
-              <span class="mini-white played"></span><span class="mini-white"></span><span class="mini-white played"></span><span class="mini-white"></span><span class="mini-white played"></span><span class="mini-white"></span><span class="mini-white"></span>
-              <span class="mini-black black-one"></span><span class="mini-black black-two"></span><span class="mini-black black-four"></span><span class="mini-black black-five"></span><span class="mini-black black-six"></span>
+            <div class="mini-chord-preview" aria-hidden="true">
+              <div class="chord-preview-instrument">
+                <span>PIANO</span>
+                <div class="mini-piano">
+                  <i class="mini-white played"></i><i class="mini-white"></i><i class="mini-white played"></i><i class="mini-white"></i><i class="mini-white played"></i><i class="mini-white"></i><i class="mini-white"></i>
+                  <i class="mini-black black-one"></i><i class="mini-black black-two"></i><i class="mini-black black-four"></i><i class="mini-black black-five"></i><i class="mini-black black-six"></i>
+                </div>
+              </div>
+              <div class="chord-preview-instrument">
+                <span>GUITAR</span>
+                <div class="mini-guitar">
+                  <i class="mini-guitar-string"></i><i class="mini-guitar-string"></i><i class="mini-guitar-string"></i><i class="mini-guitar-string"></i><i class="mini-guitar-string"></i><i class="mini-guitar-string"></i>
+                  <i class="mini-guitar-fret"></i><i class="mini-guitar-fret"></i><i class="mini-guitar-fret"></i><i class="mini-guitar-fret"></i>
+                  <i class="mini-guitar-dot dot-one"></i><i class="mini-guitar-dot dot-two"></i><i class="mini-guitar-dot dot-three"></i>
+                </div>
+              </div>
             </div>
             <div class="instrument-card-copy">
-              <h3>Piano chords</h3>
-              <p>See chord tones highlighted on the keyboard.</p>
+              <h3>Chords</h3>
+              <p>Choose piano or guitar, then find the chord shape.</p>
             </div>
-            <span class="instrument-action">OPEN PIANO ATLAS <span aria-hidden="true">→</span></span>
-          </a>
-
-          <a class="instrument-card guitar-card" href="./chords/?instrument=guitar">
-            <div class="instrument-card-top">
-              <span class="instrument-number">02 / STRINGS</span>
-              <span class="card-arrow" aria-hidden="true">↗</span>
-            </div>
-            <div class="mini-guitar" aria-hidden="true">
-              <span class="mini-guitar-string"></span><span class="mini-guitar-string"></span><span class="mini-guitar-string"></span><span class="mini-guitar-string"></span><span class="mini-guitar-string"></span><span class="mini-guitar-string"></span>
-              <span class="mini-guitar-fret"></span><span class="mini-guitar-fret"></span><span class="mini-guitar-fret"></span><span class="mini-guitar-fret"></span>
-              <span class="mini-guitar-dot dot-one"></span><span class="mini-guitar-dot dot-two"></span><span class="mini-guitar-dot dot-three"></span>
-            </div>
-            <div class="instrument-card-copy">
-              <h3>Guitar chords</h3>
-              <p>Find familiar open shapes and barre grips.</p>
-            </div>
-            <span class="instrument-action">OPEN GUITAR ATLAS <span aria-hidden="true">→</span></span>
+            <span class="instrument-action">CHOOSE AN INSTRUMENT <span aria-hidden="true">→</span></span>
           </a>
 
           <a class="instrument-card archive-card" href="./archives/">
             <div class="instrument-card-top">
-              <span class="instrument-number">03 / SONGS</span>
+              <span class="instrument-number">02 / SONGS</span>
               <span class="card-arrow" aria-hidden="true">↗</span>
             </div>
             <div class="mini-archive" aria-hidden="true">

@@ -13,14 +13,16 @@ Open the local URL printed by Vite. To create a production build, run `npm run b
 
 ## Pages
 
-- `/` is the instrument hub, with direct links to Piano and Guitar.
-- `/chords/` is the chord atlas. The instrument links open it with `?instrument=piano` or `?instrument=guitar` selected.
+- `/` is the home page with a single Chords entry and Song Archives.
+- `/chords/` is the instrument chooser for Piano and Guitar.
+- `/chords/atlas/?instrument=piano` opens the piano keyboard atlas; `?instrument=guitar` opens the guitar fretboard atlas.
 - `/archives/` is Song Archives, where cover cards select songs and show their charts by section and tact.
 
 ## Source layout
 
 - `index.html` and `src/home.js` render the home page.
-- `chords/index.html` and `src/main.js` render the chord atlas subpage.
+- `chords/index.html` and `src/chords.js` render the instrument chooser.
+- `chords/atlas/index.html` and `src/main.js` render the chord atlas.
 - `archives/index.html` and `src/archives.js` render Song Archives.
 - `src/pages/piano.js` renders the piano keyboard view.
 - `src/pages/guitar.js` selects and renders guitar chord grips.

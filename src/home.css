@@ -8,7 +8,7 @@
 .home-section-heading .section-index { margin-bottom: 7px; }
 .home-section-heading h2 { margin: 0; font-size: 19px; font-weight: 600; }
 .tool-total { color: var(--tertiary); font: 11px var(--mono); }
-.instrument-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.instrument-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
 .instrument-card { min-width: 0; min-height: 330px; display: flex; flex-direction: column; padding: 20px 22px 17px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); text-decoration: none; transition: border-color 140ms ease, transform 140ms ease, box-shadow 140ms ease; }
 .instrument-card:hover { transform: translateY(-2px); border-color: var(--green); box-shadow: var(--shadow); }
 .instrument-card-top { display: flex; align-items: center; justify-content: space-between; color: var(--tertiary); font: 9px var(--mono); }
@@ -30,6 +30,12 @@
 .mini-guitar-fret:nth-of-type(7) { top: 25%; }.mini-guitar-fret:nth-of-type(8) { top: 50%; }.mini-guitar-fret:nth-of-type(9) { top: 75%; }.mini-guitar-fret:nth-of-type(10) { top: 100%; }
 .mini-guitar-dot { width: 15px; height: 15px; position: absolute; z-index: 2; top: 30%; border: 2px solid var(--fretboard-bg); border-radius: 50%; background: var(--coral); }
 .dot-one { left: 23%; }.dot-two { left: 48%; top: 55%; background: var(--green); }.dot-three { left: 73%; }
+.mini-chord-preview { display: grid; grid-template-columns: 1.08fr 0.92fr; align-items: end; gap: 12px; margin-top: 21px; }
+.chord-preview-instrument { min-width: 0; }
+.chord-preview-instrument > span { color: var(--tertiary); font: 8px var(--mono); }
+.mini-chord-preview .mini-piano, .mini-chord-preview .mini-guitar { height: 84px; margin-top: 7px; }
+.mini-chord-preview .mini-black { height: 50px; }
+.mini-chord-preview .mini-guitar-dot { width: 12px; height: 12px; }
 .mini-archive { height: 105px; display: grid; gap: 8px; align-content: center; margin-top: 23px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; background: var(--raised); }
 .mini-archive-line { display: grid; grid-template-columns: 28px 1fr 1fr; align-items: center; gap: 10px; }
 .mini-archive-line b { color: var(--coral); font: 600 10px 'DM Sans', sans-serif; }
