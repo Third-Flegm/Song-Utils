@@ -24,6 +24,10 @@
   --sharp-text: #a94c34;
   --sharp-border: #d8785c;
   --shadow: 0 12px 35px rgba(39, 60, 48, 0.045);
+  --fretboard-bg: #eee1cb;
+  --fretboard-fret: #a99578;
+  --fretboard-string: #5b5143;
+  --fretboard-nut: #66523d;
   --mint: #cce9dc;
   --green: #126c50;
   --coral: #e8795d;
@@ -138,6 +142,23 @@ h1 em { color: var(--green); }
 .octave-label { color: #8a968d; font: 9px var(--mono); }
 .keyboard-scroll { width: 100%; overflow-x: auto; overflow-y: hidden; padding-bottom: 7px; scrollbar-color: #cad4cc transparent; scrollbar-width: thin; outline-offset: 3px; }
 .keyboard-keys { position: relative; }
+.guitar-diagram { width: max-content; min-width: 420px; padding: 10px 12px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--fretboard-bg); }
+.guitar-string-labels, .guitar-open-row, .guitar-neck-grid { display: grid; grid-template-columns: 48px repeat(6, 56px); }
+.guitar-string-labels { min-height: 28px; align-items: center; color: var(--ink); text-align: center; font: 10px var(--mono); }
+.guitar-axis-label { color: var(--secondary); font: 8px var(--mono); text-align: left; }
+.guitar-open-row { min-height: 31px; align-items: center; text-align: center; }
+.guitar-open-marker { width: 22px; height: 22px; display: grid; place-items: center; justify-self: center; border: 1.5px solid var(--green); border-radius: 50%; color: var(--green); font: 10px var(--mono); }
+.guitar-muted-marker { color: var(--tertiary); font: 13px var(--mono); }
+.guitar-fret-labels { display: grid; grid-template-rows: repeat(5, 52px); align-items: center; color: var(--secondary); text-align: left; font: 10px var(--mono); }
+.guitar-fret-labels span { padding-left: 3px; }
+.guitar-grid { width: 336px; height: 260px; position: relative; display: grid; grid-template-columns: repeat(6, 56px); grid-template-rows: repeat(5, 52px); overflow: hidden; border: 1px solid var(--fretboard-fret); border-radius: 3px; background: var(--fretboard-bg); }
+.guitar-fret-row { z-index: 0; border-bottom: 2px solid var(--fretboard-fret); }
+.guitar-fret-row.is-nut { border-top: 6px solid var(--fretboard-nut); }
+.guitar-string-wire { z-index: 1; width: 1.5px; justify-self: center; background: var(--fretboard-string); }
+.guitar-barre { z-index: 2; width: calc(100% - 10px); height: 20px; display: grid; place-self: center; place-items: center; border: 2px solid var(--fretboard-bg); border-radius: 10px; background: var(--green); color: var(--green-contrast); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25); font: 10px var(--mono); }
+.guitar-finger { z-index: 3; width: 30px; height: 30px; display: grid; place-self: center; place-items: center; border: 2px solid var(--fretboard-bg); border-radius: 50%; background: var(--green); color: var(--green-contrast); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26); font: 10px var(--mono); }
+.guitar-finger.is-root { background: var(--coral); color: #fff; }
+.keyboard-legend.is-guitar .legend-key { border-radius: 50%; border-color: var(--green); background: var(--green); }
 .white-key, .black-key { position: absolute; top: 0; display: block; }
 .white-key { width: 42px; height: 166px; border: 1px solid #d6dbd6; border-radius: 0 0 4px 4px; background: #fff; box-shadow: inset 0 -3px #edf0ec; }
 .white-key.is-played { border-color: #7aaf91; background: #cfe9da; box-shadow: inset 0 -3px #b3d7c1; }
@@ -179,6 +200,10 @@ h1 em { color: var(--green); }
   --sharp-text: #ffad8e;
   --sharp-border: #cc7658;
   --shadow: 0 12px 35px rgba(0, 0, 0, 0.24);
+  --fretboard-bg: #493528;
+  --fretboard-fret: #a99475;
+  --fretboard-string: #e2d5c1;
+  --fretboard-nut: #e4d8c3;
 }
 
 :root[data-theme="dark"] .brand-light,
@@ -213,6 +238,11 @@ h1 em { color: var(--green); }
   .stamp-note { font-size: 27px; }
   .stamp-caption { font-size: 7px; }
   .workspace { display: flex; flex-direction: column; }
+  .guitar-diagram { min-width: 0; padding: 8px 6px; }
+  .guitar-string-labels, .guitar-open-row, .guitar-neck-grid { grid-template-columns: 36px repeat(6, 40px); }
+  .guitar-grid { width: 240px; height: 240px; grid-template-columns: repeat(6, 40px); grid-template-rows: repeat(5, 48px); }
+  .guitar-fret-labels { grid-template-rows: repeat(5, 48px); }
+  .guitar-finger { width: 27px; height: 27px; }
   .catalog-panel { min-height: auto; padding: 20px 17px 13px; border-right: 0; border-bottom: 1px solid var(--line); }
   .panel-heading { margin-bottom: 14px; }
   .root-picker { grid-template-columns: repeat(4, minmax(0, 1fr)); }

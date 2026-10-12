@@ -1,6 +1,6 @@
 # Song Utils
 
-A small chord explorer for piano. The instrument and chord-quality catalog lives in `src/data/instruments.json`; the app builds the 12-root chord library from that data and highlights the notes on a keyboard.
+A chord explorer for piano and guitar. The instrument and chord-quality catalog lives in `src/data/instruments.json`; selected chords are shown on a piano keyboard or as a guitar fretboard grip.
 
 ## Run locally
 
@@ -17,4 +17,4 @@ The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and publish
 
 ## Included chord types
 
-The piano catalog covers major and minor chords across all 12 chromatic roots. Note names use German notation: B is B-flat and H is B natural. Chords are shown in root position.
+Both instruments cover major and minor chords across all 12 chromatic roots. Note names use German notation: B is B-flat and H is B natural. Piano chords are shown in root position; guitar grips use common open C, D, E, G, and A shapes where available, with E- or A-form barre shapes for other roots.
