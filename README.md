@@ -11,6 +11,20 @@ npm run dev
 
 Open the local URL printed by Vite. To create a production build, run `npm run build`.
 
+## Pages
+
+- `/` is the instrument hub, with direct links to Piano and Guitar.
+- `/chords/` is the chord atlas. The instrument links open it with `?instrument=piano` or `?instrument=guitar` selected.
+
+## Source layout
+
+- `index.html` and `src/home.js` render the home page.
+- `chords/index.html` and `src/main.js` render the chord atlas subpage.
+- `src/pages/piano.js` renders the piano keyboard view.
+- `src/pages/guitar.js` selects and renders guitar chord grips.
+- `src/data/instruments.json` defines instruments and chord notes.
+- `src/style.css` contains shared and instrument-view styles.
+
 ## Publish on GitHub Pages
 
 The GitHub Actions workflow in `.github/workflows/deploy.yml` builds and publishes the site whenever you push to `main`. In the repository settings, open **Pages** and set the build and deployment source to **GitHub Actions**. The deployed site will be available at the Pages URL shown in that settings page.

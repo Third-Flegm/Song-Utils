@@ -1,9 +1,23 @@
 {
   "roots": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "B", "H"],
   "chordTypes": [
-    { "id": "major", "name": "Major", "suffix": "", "intervals": [0, 4, 7] },
-    { "id": "minor", "name": "Minor", "suffix": "m", "intervals": [0, 3, 7] }
+    { "id": "major", "name": "Major", "suffix": "" },
+    { "id": "minor", "name": "Minor", "suffix": "m" }
   ],
+  "chords": {
+    "C": { "major": ["C", "E", "G"], "minor": ["C", "D#", "G"] },
+    "C#": { "major": ["C#", "F", "G#"], "minor": ["C#", "E", "G#"] },
+    "D": { "major": ["D", "F#", "A"], "minor": ["D", "F", "A"] },
+    "D#": { "major": ["D#", "G", "B"], "minor": ["D#", "F#", "B"] },
+    "E": { "major": ["E", "G#", "H"], "minor": ["E", "G", "H"] },
+    "F": { "major": ["F", "A", "C"], "minor": ["F", "G#", "C"] },
+    "F#": { "major": ["F#", "B", "C#"], "minor": ["F#", "A", "C#"] },
+    "G": { "major": ["G", "H", "D"], "minor": ["G", "B", "D"] },
+    "G#": { "major": ["G#", "C", "D#"], "minor": ["G#", "H", "D#"] },
+    "A": { "major": ["A", "C#", "E"], "minor": ["A", "C", "E"] },
+    "B": { "major": ["B", "D", "F"], "minor": ["B", "C#", "F"] },
+    "H": { "major": ["H", "D#", "F#"], "minor": ["H", "D", "F#"] }
+  },
   "instruments": [
     { "id": "piano", "name": "Piano" },
     { "id": "guitar", "name": "Guitar", "tuning": "EADGHE" }

@@ -77,6 +77,9 @@ button, select { color: inherit; }
 .brand-mark i:nth-child(2) { height: 16px; background: var(--coral); }
 .brand-mark i:nth-child(3) { height: 12px; }
 .topbar-right { display: flex; align-items: center; gap: 24px; }
+.home-link { display: flex; align-items: center; gap: 5px; color: var(--green); text-decoration: none; font: 9px var(--mono); }
+.home-link span { font: 16px 'DM Sans', sans-serif; }
+.home-link:hover { color: var(--coral); }
 .edition-label, .eyebrow, .section-index, .notes-label, .keyboard-title, .keyboard-legend, .page-footer, .catalog-footnote, .voicing-badge { font-family: var(--mono); }
 .edition-label { color: #89918b; font-size: 9px; letter-spacing: 0; }
 .instrument-control { position: relative; display: flex; align-items: center; gap: 9px; padding: 8px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fff; }

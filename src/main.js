@@ -1,21 +1,23 @@
 import catalog from './data/instruments.json';
 import './style.css';
+import { renderGuitarPage } from './pages/guitar.js';
+import { renderPianoPage } from './pages/piano.js';
 
 const noteNames = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'B', 'H'];
 const baseRoots = ['C', 'D', 'E', 'F', 'G', 'A', 'H'];
 const naturalPitchClasses = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, H: 11 };
 const guitarStringOctaves = [2, 2, 3, 3, 3, 4];
-const blackPitchClasses = new Set([1, 3, 6, 8, 10]);
 const app = document.querySelector('#app');
 
 app.innerHTML = `
   <div class="app-shell">
     <header class="topbar">
-      <a class="brand" href="#" aria-label="Song Utils home">
+      <a class="brand" href="../" aria-label="Song Utils home">
         <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
         <span>song<span class="brand-light">utils</span></span>
       </a>
       <div class="topbar-right">
+        <a class="home-link" href="../">HOME <span aria-hidden="true">↖</span></a>
         <span class="edition-label">THE MUSICIAN'S TOOLKIT</span>
         <label class="instrument-control" for="instrument-select">
           <span class="instrument-icon" aria-hidden="true">♫</span>
@@ -114,7 +116,8 @@ const rootPicker = document.querySelector('#root-picker');
 const chordCount = document.querySelector('#chord-count');
 const catalogSummary = document.querySelector('#catalog-summary');
 const instruments = catalog.instruments;
-let selectedInstrument = instruments[0];
+const requestedInstrument = new URLSearchParams(window.location.search).get('instrument');
+let selectedInstrument = instruments.find((instrument) => instrument.id === requestedInstrument) ?? instruments[0];
 let activeBaseRoot = baseRoots[0];
 let hasSharp = false;
 let isMinor = false;
@@ -138,6 +141,7 @@ themeToggle.addEventListener('click', () => {
 instrumentSelect.innerHTML = instruments.map((instrument) =>
   `<option value="${instrument.id}">${instrument.name}</option>`,
 ).join('');
+instrumentSelect.value = selectedInstrument.id;
 
 function chordName(root, type) {
   return `${root}${type.suffix}`;
@@ -164,180 +168,6 @@ function renderControls() {
     : `${catalog.roots.length} notes · major and minor`;
 }
 
-function renderKeyboard(rootMidi, notes) {
-  const highestNote = Math.max(...notes.map((note) => note.midi));
-  const startMidi = 60;
-  const endMidi = Math.max(rootMidi + 12, highestNote + 2);
-  const whiteNotes = [];
-  const blackNotes = [];
-  let whiteIndex = 0;
-
-  for (let midi = startMidi; midi <= endMidi; midi += 1) {
-    const pitchClass = midi % 12;
-    const note = { midi, pitchClass, name: noteNames[pitchClass], octave: Math.floor(midi / 12) - 1 };
-    if (blackPitchClasses.has(pitchClass)) {
-      const previousWhiteCount = whiteNotes.length;
-      blackNotes.push({ ...note, left: previousWhiteCount * 42 - 13 });
-    } else {
-      whiteNotes.push({ ...note, left: whiteIndex * 42 });
-      whiteIndex += 1;
-    }
-  }
-
-  const playedMidi = new Set(notes.map((note) => note.midi));
-  const whiteKeys = whiteNotes.map((note) => {
-    const isActive = playedMidi.has(note.midi);
-    const startsOctave = note.name === 'C';
-    return `<span class="white-key${isActive ? ' is-played' : ''}" style="left:${note.left}px" aria-hidden="true">
-      ${isActive ? `<span class="key-note-label">${note.name}</span>` : ''}
-      ${startsOctave ? `<span class="key-octave-label">C${note.octave}</span>` : ''}
-    </span>`;
-  }).join('');
-  const blackKeys = blackNotes.map((note) => {
-    const isActive = playedMidi.has(note.midi);
-    return `<span class="black-key${isActive ? ' is-played' : ''}" style="left:${note.left}px" aria-hidden="true">
-      ${isActive ? `<span class="key-note-label">${note.name}</span>` : ''}
-    </span>`;
-  }).join('');
-
-  const whiteWidth = whiteNotes.length * 42;
-  const blackWidth = Math.max(0, ...blackNotes.map((note) => note.left + 26));
-  const width = Math.max(whiteWidth, blackWidth);
-  const startLabel = `${noteNames[startMidi % 12]}${Math.floor(startMidi / 12) - 1}`;
-  const endLabel = `${noteNames[endMidi % 12]}${Math.floor(endMidi / 12) - 1}`;
-
-  document.querySelector('#keyboard').innerHTML = `
-    <div class="keyboard-keys" style="width:${width}px;height:166px">
-      ${whiteKeys}${blackKeys}
-    </div>
-  `;
-  document.querySelector('#keyboard').setAttribute('aria-label', `Piano keyboard showing ${notes.map((note) => `${note.name}${note.octave}`).join(', ')}`);
-  document.querySelector('#octave-label').textContent = `${startLabel} — ${endLabel}`;
-  document.querySelector('#range-note').textContent = `${startLabel} TO ${endLabel}`;
-}
-
-function getGuitarGrip(rootPitch, type) {
-  const tuning = selectedInstrument.tuning.split('').map((note, index) => ({
-    note,
-    midi: (guitarStringOctaves[index] + 1) * 12 + noteNames.indexOf(note),
-  }));
-  const openShapes = {
-    '0:major': { frets: [null, 3, 2, 0, 1, 0], fingers: [0, 3, 2, 0, 1, 0] },
-    '2:major': { frets: [null, null, 0, 2, 3, 2], fingers: [0, 0, 0, 1, 3, 2] },
-    '4:major': { frets: [0, 2, 2, 1, 0, 0], fingers: [0, 2, 3, 1, 0, 0] },
-    '7:major': { frets: [3, 2, 0, 0, 0, 3], fingers: [2, 1, 0, 0, 0, 3] },
-    '9:major': { frets: [null, 0, 2, 2, 2, 0], fingers: [0, 0, 1, 2, 3, 0] },
-    '2:minor': { frets: [null, null, 0, 2, 3, 1], fingers: [0, 0, 0, 2, 3, 1] },
-    '4:minor': { frets: [0, 2, 2, 0, 0, 0], fingers: [0, 2, 3, 0, 0, 0] },
-    '9:minor': { frets: [null, 0, 2, 2, 1, 0], fingers: [0, 0, 2, 3, 1, 0] },
-  };
-  const openShape = openShapes[`${rootPitch}:${type.id}`];
-  let frets;
-  let fingers;
-  let barres = [];
-
-  if (openShape) {
-    ({ frets, fingers } = openShape);
-  } else {
-    const isMinorChord = type.id === 'minor';
-    const eFormFret = (rootPitch - (tuning[0].midi % 12) + 12) % 12;
-    const aFormFret = (rootPitch - (tuning[1].midi % 12) + 12) % 12;
-    const useAForm = aFormFret > 0 && (eFormFret === 0 || aFormFret < eFormFret);
-    const rootFret = useAForm ? aFormFret : eFormFret;
-
-    if (useAForm) {
-      frets = isMinorChord
-        ? [null, rootFret, rootFret + 2, rootFret + 2, rootFret + 1, rootFret]
-        : [null, rootFret, rootFret + 2, rootFret + 2, rootFret + 2, rootFret];
-      fingers = isMinorChord ? [0, 1, 3, 3, 2, 1] : [0, 1, 3, 3, 3, 1];
-      barres = [{ fret: rootFret, firstString: 1, lastString: 5, finger: 1 }];
-    } else {
-      frets = isMinorChord
-        ? [rootFret, rootFret + 2, rootFret + 2, rootFret, rootFret, rootFret]
-        : [rootFret, rootFret + 2, rootFret + 2, rootFret + 1, rootFret, rootFret];
-      fingers = isMinorChord ? [1, 3, 4, 1, 1, 1] : [1, 3, 4, 2, 1, 1];
-      barres = [{ fret: rootFret, firstString: 0, lastString: 5, finger: 1 }];
-    }
-  }
-
-  const notes = tuning.flatMap((string, index) => {
-    if (frets[index] === null) return [];
-    const midi = string.midi + frets[index];
-    const pitchClass = midi % 12;
-    return [{ midi, name: noteNames[pitchClass], octave: Math.floor(midi / 12) - 1, isRoot: pitchClass === rootPitch }];
-  });
-  const playedFrets = frets.filter((fret) => fret !== null && fret > 0);
-
-  return {
-    tuning,
-    frets,
-    fingers,
-    barres,
-    notes,
-    firstFret: playedFrets.length ? Math.min(...playedFrets) : 1,
-    rootFret: playedFrets.length ? Math.min(...playedFrets) : 0,
-    isOpenPosition: frets.includes(0),
-  };
-}
-
-function renderGuitarFretboard(grip, symbol) {
-  const fretCount = 5;
-  const firstFret = grip.firstFret;
-  const fretLabels = Array.from({ length: fretCount }, (_, index) => firstFret + index);
-  const stringLabels = grip.tuning.map((string) =>
-    `<span>${string.note}${Math.floor(string.midi / 12) - 1}</span>`,
-  ).join('');
-  const openMarkers = grip.frets.map((fret) => {
-    const marker = fret === null
-      ? '<span class="guitar-muted-marker">×</span>'
-      : fret === 0 ? '<span class="guitar-open-marker">0</span>' : '';
-    return `<span>${marker}</span>`;
-  }).join('');
-  const fretMarkers = grip.tuning.map((string, index) => {
-    const fret = grip.frets[index];
-    if (fret === null || fret === 0) return '';
-    if (grip.barres.some((barre) => barre.fret === fret && index >= barre.firstString && index <= barre.lastString)) return '';
-    const row = fret - firstFret + 1;
-    const isRoot = grip.notes.some((note) => note.isRoot && note.midi === string.midi + fret);
-    return `<span class="guitar-finger${isRoot ? ' is-root' : ''}" style="grid-column:${index + 1};grid-row:${row}">${grip.fingers[index]}</span>`;
-  }).join('');
-  const barreMarkers = grip.barres.map((barre) => {
-    const row = barre.fret - firstFret + 1;
-    return `<span class="guitar-barre" style="grid-column:${barre.firstString + 1}/${barre.lastString + 2};grid-row:${row}">${barre.finger}</span>`;
-  }).join('');
-  const stringWires = grip.tuning.map((string, index) =>
-    `<span class="guitar-string-wire" style="grid-column:${index + 1};grid-row:1/${fretCount + 1}"></span>`,
-  ).join('');
-  const fretRows = fretLabels.map((fret, index) =>
-    `<span class="guitar-fret-row${index === 0 && grip.isOpenPosition ? ' is-nut' : ''}" style="grid-column:1/-1;grid-row:${index + 1}"></span>`,
-  ).join('');
-  const firstFretLabel = grip.isOpenPosition ? 'OPEN POSITION' : `FRET ${firstFret}–${firstFret + fretCount - 1}`;
-  const positionType = grip.barres.length ? 'BARRE SHAPE' : 'OPEN SHAPE';
-
-  document.querySelector('#keyboard').innerHTML = `
-    <div class="guitar-diagram">
-      <div class="guitar-string-labels"><span class="guitar-axis-label">TUNING</span>${stringLabels}</div>
-      <div class="guitar-open-row"><span class="guitar-axis-label">OPEN</span>${openMarkers}</div>
-      <div class="guitar-neck-grid">
-        <div class="guitar-fret-labels">${fretLabels.map((fret) => `<span>${fret}</span>`).join('')}</div>
-        <div class="guitar-grid${grip.isOpenPosition ? ' is-open-position' : ''}">
-          ${fretRows}${stringWires}${barreMarkers}${fretMarkers}
-        </div>
-      </div>
-    </div>
-  `;
-  document.querySelector('#keyboard').setAttribute('aria-label', `Guitar fretboard showing ${symbol} chord grip`);
-  document.querySelector('#grip-display').setAttribute('aria-label', `Scrollable guitar fretboard showing ${symbol}`);
-  document.querySelector('#keyboard-legend').classList.add('is-guitar');
-  document.querySelector('#grip-title').textContent = 'FRETBOARD VIEW';
-  document.querySelector('#grip-hint').textContent = '× is muted, 0 is open; numbers show fingers.';
-  document.querySelector('#grip-legend').textContent = 'FINGER POSITIONS';
-  document.querySelector('#grip-caption').textContent = positionType;
-  document.querySelector('#grip-tip').textContent = 'Follow each string from its tuning label to the marked fret.';
-  document.querySelector('#octave-label').textContent = 'STANDARD TUNING';
-  document.querySelector('#range-note').textContent = firstFretLabel;
-}
-
 function renderSelectedChord() {
   const activeRoot = getActiveRoot();
   const activeChordId = isMinor ? 'minor' : 'major';
@@ -346,10 +176,11 @@ function renderSelectedChord() {
   const rootPitch = catalog.roots.indexOf(activeRoot);
   const rootMidi = 60 + rootPitch;
   const symbol = chordName(activeRoot, type);
-  const notes = type.intervals.map((interval) => {
+  const notes = catalog.chords[activeRoot][type.id].map((name) => {
+    const pitchClass = noteNames.indexOf(name);
+    const interval = (pitchClass - rootPitch + noteNames.length) % noteNames.length;
     const midi = rootMidi + interval;
-    const pitchClass = midi % 12;
-    return { midi, name: noteNames[pitchClass], octave: Math.floor(midi / 12) - 1 };
+    return { midi, name, octave: Math.floor(midi / 12) - 1 };
   });
 
   document.querySelector('#chord-title').textContent = symbol;
@@ -357,9 +188,12 @@ function renderSelectedChord() {
   document.querySelector('#chord-symbol').textContent = symbol;
   let displayNotes = notes;
   if (selectedInstrument.id === 'guitar') {
-    const grip = getGuitarGrip(rootPitch, type);
-    displayNotes = grip.notes;
-    renderGuitarFretboard(grip, symbol);
+    const guitarNotes = renderGuitarPage({ instrument: selectedInstrument, rootPitch, type, symbol, noteNames });
+    const chordSpelling = new Map(notes.map((note) => [note.midi % noteNames.length, note.name]));
+    displayNotes = guitarNotes.map((note) => ({
+      ...note,
+      name: chordSpelling.get(note.midi % noteNames.length) ?? note.name,
+    }));
   } else {
     document.querySelector('#keyboard-legend').classList.remove('is-guitar');
     document.querySelector('#keyboard').setAttribute('role', 'img');
@@ -369,7 +203,7 @@ function renderSelectedChord() {
     document.querySelector('#grip-legend').textContent = 'PLAY THIS NOTE';
     document.querySelector('#grip-tip').textContent = 'Start with the lowest highlighted key.';
     document.querySelector('#grip-caption').textContent = `${notes.length} NOTES · ROOT POSITION`;
-    renderKeyboard(rootMidi, notes);
+    renderPianoPage({ rootMidi, notes, noteNames });
   }
   document.querySelector('#note-chips').innerHTML = displayNotes.map((note, index) => `
     <span class="note-chip"><span class="note-chip-index">${String(index + 1).padStart(2, '0')}</span>${note.name}<sup>${note.octave}</sup></span>
@@ -403,6 +237,9 @@ instrumentSelect.addEventListener('change', () => {
   activeBaseRoot = baseRoots[0];
   hasSharp = false;
   isMinor = false;
+  const pageUrl = new URL(window.location.href);
+  pageUrl.searchParams.set('instrument', selectedInstrument.id);
+  window.history.replaceState(null, '', pageUrl);
   render();
 });
 
