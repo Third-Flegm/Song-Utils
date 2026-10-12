@@ -1,0 +1,14 @@
+{
+  "instruments": [
+    {
+      "id": "piano",
+      "name": "Piano",
+      "description": "Keyboard chords",
+      "roots": ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "B", "H"],
+      "chordTypes": [
+        { "id": "major", "name": "Major", "suffix": "", "intervals": [0, 4, 7] },
+        { "id": "minor", "name": "Minor", "suffix": "m", "intervals": [0, 3, 7] }
+      ]
+    }
+  ]
+}
