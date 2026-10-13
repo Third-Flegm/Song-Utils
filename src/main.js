@@ -124,15 +124,15 @@ let hasSharp = false;
 let isMinor = false;
 
 function setTheme(theme) {
-  const isDark = theme === 'light';
-  document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
+  const isDark = theme === 'dark';
+  document.documentElement.dataset.theme = theme;
   themeToggle.setAttribute('aria-pressed', String(isDark));
   themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
   themeToggle.title = `Switch to ${isDark ? 'light' : 'dark'} mode`;
   themeToggle.querySelector('.theme-icon').textContent = isDark ? '☼' : '☾';
 }
 
-setTheme(localStorage.getItem('song-utils-theme') === 'dark' ? 'dark' : 'light');
+setTheme(localStorage.getItem('song-utils-theme') ?? 'dark');
 themeToggle.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   localStorage.setItem('song-utils-theme', nextTheme);
