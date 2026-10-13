@@ -181,7 +181,7 @@ h1 em { color: var(--green); }
 .footer-separator { padding: 0 7px; color: var(--coral); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
 
-:root[data-theme="dark"] {
+:root:not([data-theme="light"]) {
   color-scheme: dark;
   --ink: #e7eee8;
   --muted: #b0bcb3;
@@ -209,15 +209,15 @@ h1 em { color: var(--green); }
   --fretboard-nut: #e4d8c3;
 }
 
-:root[data-theme="dark"] .brand-light,
-:root[data-theme="dark"] .edition-label,
-:root[data-theme="dark"] .select-chevron { color: var(--tertiary); }
-:root[data-theme="dark"] .instrument-control,
-:root[data-theme="dark"] .theme-toggle { border-color: var(--line); background: var(--raised); }
-:root[data-theme="dark"] .instrument-stamp { border-color: var(--line); }
-:root[data-theme="dark"] .catalog-footnote,
-:root[data-theme="dark"] .octave-label,
-:root[data-theme="dark"] .range-note { color: var(--tertiary); }
+:root:not([data-theme="light"]) .brand-light,
+:root:not([data-theme="light"]) .edition-label,
+:root:not([data-theme="light"]) .select-chevron { color: var(--tertiary); }
+:root:not([data-theme="light"]) .instrument-control,
+:root:not([data-theme="light"]) .theme-toggle { border-color: var(--line); background: var(--raised); }
+:root:not([data-theme="light"]) .instrument-stamp { border-color: var(--line); }
+:root:not([data-theme="light"]) .catalog-footnote,
+:root:not([data-theme="light"]) .octave-label,
+:root:not([data-theme="light"]) .range-note { color: var(--tertiary); }
 
 @media (max-width: 900px) {
   main { padding: 0 22px; }

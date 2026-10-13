@@ -1,4 +1,4 @@
-import"./style-D2z-nlSX.js";document.querySelector("#app").innerHTML=`
+import"./style-BJXntHts.js";document.querySelector("#app").innerHTML=`
   <div class="app-shell home-shell">
     <header class="topbar">
       <a class="brand" href="./" aria-label="Song Utils home">
@@ -84,4 +84,4 @@ import"./style-D2z-nlSX.js";document.querySelector("#app").innerHTML=`
       </footer>
     </main>
   </div>
-`;const s=document.querySelector("#theme-toggle");function e(i){const a=i==="dark";document.documentElement.dataset.theme=i,s.setAttribute("aria-pressed",String(a)),s.setAttribute("aria-label",`Switch to ${a?"light":"dark"} mode`),s.title=`Switch to ${a?"light":"dark"} mode`,s.querySelector(".theme-icon").textContent=a?"☼":"☾"}e(localStorage.getItem("song-utils-theme")??"dark");s.addEventListener("click",()=>{const i=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("song-utils-theme",i),e(i)});
+`;const s=document.querySelector("#theme-toggle");function e(i){const a=i==="dark";document.documentElement.dataset.theme=i,s.setAttribute("aria-pressed",String(a)),s.setAttribute("aria-label",`Switch to ${a?"light":"dark"} mode`),s.title=`Switch to ${a?"light":"dark"} mode`,s.querySelector(".theme-icon").textContent=a?"☼":"☾"}e(localStorage.getItem("song-utils-theme-v2")??"dark");s.addEventListener("click",()=>{const i=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("song-utils-theme-v2",i),e(i)});

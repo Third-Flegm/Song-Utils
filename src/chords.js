@@ -87,9 +87,9 @@ function setTheme(theme) {
   themeToggle.querySelector('.theme-icon').textContent = isDark ? '☼' : '☾';
 }
 
-setTheme(localStorage.getItem('song-utils-theme') ?? 'dark');
+setTheme(localStorage.getItem('song-utils-theme-v2') ?? 'dark');
 themeToggle.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('song-utils-theme', nextTheme);
+  localStorage.setItem('song-utils-theme-v2', nextTheme);
   setTheme(nextTheme);
 });

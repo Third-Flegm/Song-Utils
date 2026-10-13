@@ -1,4 +1,4 @@
-import"./style-D2z-nlSX.js";import{c as s}from"./instruments-CfFpsWla.js";const t=document.querySelector("#app");function o(i){return i.id==="piano"?`
+import"./style-BJXntHts.js";import{c as s}from"./instruments-CfFpsWla.js";const t=document.querySelector("#app");function o(i){return i.id==="piano"?`
       <div class="choice-piano" aria-hidden="true">
         <i class="choice-white active"></i><i class="choice-white"></i><i class="choice-white active"></i><i class="choice-white"></i><i class="choice-white active"></i><i class="choice-white"></i><i class="choice-white"></i>
         <i class="choice-black black-a"></i><i class="choice-black black-b"></i><i class="choice-black black-d"></i><i class="choice-black black-e"></i><i class="choice-black black-f"></i>
@@ -60,4 +60,4 @@ import"./style-D2z-nlSX.js";import{c as s}from"./instruments-CfFpsWla.js";const 
       </footer>
     </main>
   </div>
-`;const a=document.querySelector("#theme-toggle");function c(i){const e=i==="dark";document.documentElement.dataset.theme=i,a.setAttribute("aria-pressed",String(e)),a.setAttribute("aria-label",`Switch to ${e?"light":"dark"} mode`),a.title=`Switch to ${e?"light":"dark"} mode`,a.querySelector(".theme-icon").textContent=e?"☼":"☾"}c(localStorage.getItem("song-utils-theme")??"dark");a.addEventListener("click",()=>{const i=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("song-utils-theme",i),c(i)});
+`;const a=document.querySelector("#theme-toggle");function c(i){const e=i==="dark";document.documentElement.dataset.theme=i,a.setAttribute("aria-pressed",String(e)),a.setAttribute("aria-label",`Switch to ${e?"light":"dark"} mode`),a.title=`Switch to ${e?"light":"dark"} mode`,a.querySelector(".theme-icon").textContent=e?"☼":"☾"}c(localStorage.getItem("song-utils-theme-v2")??"dark");a.addEventListener("click",()=>{const i=document.documentElement.dataset.theme==="dark"?"light":"dark";localStorage.setItem("song-utils-theme-v2",i),c(i)});
