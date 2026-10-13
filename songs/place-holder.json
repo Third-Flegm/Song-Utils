@@ -1,1 +1,13 @@
-
+{
+  "key": "A minor",
+  "meter": "4/4",
+  "sections": [
+    {
+      "name": "Intro",
+      "tacts": [
+        { "parts": [{ "chord": "Am" }, { "chord": "C" }] },
+        { "parts": [{ "chord": "F" }, { "chord": "Dm" }] }
+      ]
+    }
+  ]
+}
