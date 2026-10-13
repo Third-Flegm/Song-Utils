@@ -92,15 +92,13 @@ document.querySelector('#app').innerHTML = `
 const themeToggle = document.querySelector('#theme-toggle');
 
 function setTheme(theme) {
-  const isDark = theme === 'dark';
+  const isDark = theme === 'light';
   document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
   themeToggle.setAttribute('aria-pressed', String(isDark));
   themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
   themeToggle.title = `Switch to ${isDark ? 'light' : 'dark'} mode`;
-  const icon = themeToggle.querySelector('.theme-icon');
-  if (icon) icon.textContent = isDark ? '☼' : '☾';
+  themeToggle.querySelector('.theme-icon').textContent = isDark ? '☼' : '☾';
 }
-
 setTheme(localStorage.getItem('song-utils-theme') === 'dark' ? 'dark' : 'light');
 themeToggle.addEventListener('click', () => {
   const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
