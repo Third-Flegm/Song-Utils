@@ -92,7 +92,7 @@ document.querySelector('#app').innerHTML = `
 const themeToggle = document.querySelector('#theme-toggle');
 
 function setTheme(theme) {
-  const isDark = theme === 'dark';
+  const isDark = theme === 'light';
   document.documentElement.dataset.theme = isDark ? 'dark' : 'light';
   themeToggle.setAttribute('aria-pressed', String(isDark));
   themeToggle.setAttribute('aria-label', `Switch to ${isDark ? 'light' : 'dark'} mode`);
